@@ -1,0 +1,10 @@
+import cv2
+img = cv2.imread('C:\Users\Narendra\Pictures\Saved Pictures\SAVE_20220317_223050.jpg')
+gr = cv2.cvtcolor(img,cv2.COLOR_BGR2GRAY)
+invert = cv2.bitwise_not(gr)
+blur = cv2.GaussianBlur(invert,(21,21),0)
+invertedblur = cv2.bitwise_not(blur)
+Sketch = cv2.divide(gr,invertedblur,scale = 256.0)
+cv2.imshow('originalimage',img)
+cv2.imshow('sketch image',sketch)
+cv2.wait key(0)
